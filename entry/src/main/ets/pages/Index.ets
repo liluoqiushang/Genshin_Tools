@@ -5,16 +5,16 @@ struct Index {
 
   @Builder
   TabBuilder(index:number,title:string){
-    Row(){
+    Row() {
       Image($r('app.media.app_icon'))
         .width(23)
         .height(23)
         .margin({right:10})
       Text(title)
-        .fontSize(16)
+        .fontSize(17)
     }
-    .width('100%')
-    .height('100%')
+    .padding(5)
+
   }
 
   build() {
@@ -33,7 +33,7 @@ struct Index {
           .height('100%')
           .backgroundColor('#ffff0000')
         }
-        .tabBar(this.TabBuilder(0,"首页"))
+        .tabBar(this.TabBuilder(0,"主页"))
         TabContent() {
           Column(){
 
@@ -63,10 +63,10 @@ struct Index {
         .tabBar(this.TabBuilder(0,"设置"))
       }
       .vertical(true)
-      .barMode(BarMode.Fixed)
-      .barWidth(100)
-      .barHeight(200)
-      .animationDuration(300)
+      .barMode(BarMode.Scrollable)
+      .barWidth(150)
+      .barHeight('100%')
+      .padding(10)
 
     }
     .width('100%')
