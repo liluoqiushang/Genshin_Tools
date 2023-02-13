@@ -3,17 +3,15 @@
 @Component
 export struct MainPage {
   build() {
-    Row() {
+    RelativeContainer(){
       Text('主页')
-        .fontSize(16)
-      Blank()
+        .id('title')
+      Image($r('app.media.app_icon'))
+        .id('mainImg')
       Text('项目地址：http://github.com/liluoqiushang/Genshin_Tools')
-        .height('100%')
-        .textAlign(TextAlign.End)
+        .id('projectPath')
+
 
     }
-    .width('100%')
-    .height('100%')
-    .alignItems(VerticalAlign.Top)
   }
 }
