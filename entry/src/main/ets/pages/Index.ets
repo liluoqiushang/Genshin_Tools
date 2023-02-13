@@ -1,3 +1,4 @@
+import {MainPage} from '../layout/mainPage'
 
 @Entry
 @Component
@@ -27,12 +28,7 @@ struct Index {
         }
       ) {
         TabContent() {
-          Column(){
-
-          }
-          .width('100%')
-          .height('100%')
-          .backgroundColor('#ffff0000')
+            MainPage()
         }
         .tabBar(this.TabBuilder(0,"主页"))
         TabContent() {
