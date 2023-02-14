@@ -3,13 +3,49 @@
 @Component
 export struct MainPage {
   build() {
-    RelativeContainer(){
-      Text('主页')
+    RelativeContainer() {
+      Text('欢迎旅行者来到提瓦特,请开始你的冒险吧')
+        .textAlign(TextAlign.Center)
         .id('title')
+        .fontSize(35)
+        .fontWeight(FontWeight.Bold)
+        .margin(20)
+        .alignRules(
+          {
+            middle:
+            {
+              anchor: '__container__',
+              align: HorizontalAlign.Center
+            }
+          }
+        )
       Image($r('app.media.app_icon'))
+        .width('50%')
+        .height('50%')
         .id('mainImg')
+        .alignRules({
+          center: {
+            anchor: '__container__',
+            align: VerticalAlign.Center
+          },
+          middle: {
+            anchor: '__container__',
+            align: HorizontalAlign.Center
+          }
+        })
       Text('项目地址：http://github.com/liluoqiushang/Genshin_Tools')
         .id('projectPath')
+        .alignRules({
+          right:{
+            align:HorizontalAlign.End,
+            anchor:'__container__'
+          },
+          bottom:{
+            anchor:'__container__',
+            align:VerticalAlign.Bottom
+          }
+        }
+        )
     }
     .padding(10)
   }
