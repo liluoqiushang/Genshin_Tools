@@ -10,8 +10,7 @@ export struct MainPage {
         .id('mainImg')
       Text('项目地址：http://github.com/liluoqiushang/Genshin_Tools')
         .id('projectPath')
-
-
     }
+    .padding(10)
   }
 }

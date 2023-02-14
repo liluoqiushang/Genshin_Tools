@@ -1,4 +1,5 @@
 import {MainPage} from '../layout/mainPage'
+import {ToolsPage} from '../layout/toolsPage'
 
 @Entry
 @Component
@@ -33,7 +34,7 @@ struct Index {
         .tabBar(this.TabBuilder(0,"主页"))
         TabContent() {
           Column(){
-
+            ToolsPage()
           }
           .width('100%')
           .height('100%')
