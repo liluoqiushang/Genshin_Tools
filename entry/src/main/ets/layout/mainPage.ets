@@ -33,7 +33,7 @@ export struct MainPage {
             align: HorizontalAlign.Center
           }
         })
-      Text('项目地址：http://github.com/liluoqiushang/Genshin_Tools')
+      Text('作者：沐雨璃殇\n项目地址：http://github.com/liluoqiushang/Genshin_Tools')
         .id('projectPath')
         .alignRules({
           right:{
@@ -46,6 +46,7 @@ export struct MainPage {
           }
         }
         )
+        .textAlign(TextAlign.End)
     }
     .padding(10)
   }
