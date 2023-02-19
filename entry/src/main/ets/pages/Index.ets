@@ -1,5 +1,5 @@
-import {MainPage} from '../layout/mainPage'
-import {ToolsPage} from '../layout/toolsPage'
+import { MainPage } from '../layout/mainPage'
+import { ToolsPage } from '../layout/toolsPage'
 
 @Entry
 @Component
@@ -7,14 +7,14 @@ struct Index {
   private controller: TabsController = new TabsController()
 
   @Builder
-  TabBuilder(index:number,title:string){
+  TabBuilder(index: number, title: string) {
     Row() {
       Image($r('app.media.app_icon'))
-        .width(23)
-        .height(23)
-        .margin({right:10})
+        .width(20)
+        .height(20)
+        .margin({ right: 10 })
       Text(title)
-        .fontSize(17)
+        .fontSize(15)
     }
     .padding(5)
 
@@ -22,6 +22,57 @@ struct Index {
 
   build() {
     Column() {
+      Row() {
+        Row() {
+          Image($r('app.media.app_icon'))
+            .clip(true)
+            .width(35)
+            .height(35)
+            .borderRadius(100)
+            .backgroundColor('#ffffff')
+            .padding(1)
+
+          Column() {
+            Text('未登录')
+              .fontSize(16)
+              .fontWeight(FontWeight.Bold)
+              .margin({ bottom:2})
+            Text('15485624')
+              .fontSize(14)
+          }
+          .alignItems(HorizontalAlign.Start)
+          .margin({
+            left: 10,
+            right: 30
+          })
+
+        }
+
+        Blank()
+
+        Search(
+          {
+            placeholder: '输入想要搜索的功能'
+          }
+        )
+          .width(350)
+            //.layoutWeight(1)
+          .searchButton('搜索')
+          .placeholderFont(
+            {
+              size: 14
+            }
+          )
+          .textFont(
+            {
+              size: 14,
+            }
+          )
+
+      }
+      .width('100%')
+      .padding(20)
+
       Tabs(
         {
           barPosition: BarPosition.Start,
@@ -29,45 +80,50 @@ struct Index {
         }
       ) {
         TabContent() {
-            MainPage()
+          MainPage()
         }
-        .tabBar(this.TabBuilder(0,"主页"))
+        .tabBar(this.TabBuilder(0, "主页"))
+
         TabContent() {
-          Column(){
+          Column() {
             ToolsPage()
           }
           .width('100%')
           .height('100%')
           .backgroundColor('#ff0018ff')
         }
-        .tabBar(this.TabBuilder(0,"工具"))
+        .tabBar(this.TabBuilder(0, "工具"))
+
         TabContent() {
-          Column(){
+          Column() {
 
           }
           .width('100%')
           .height('100%')
           .backgroundColor('#ffffe600')
         }
-        .tabBar(this.TabBuilder(0,"发现"))
+        .tabBar(this.TabBuilder(0, "发现"))
+
         TabContent() {
-          Column(){
+          Column() {
 
           }
           .width('100%')
           .height('100%')
           .backgroundColor('#ffffa200')
         }
-        .tabBar(this.TabBuilder(0,"设置"))
+        .tabBar(this.TabBuilder(0, "设置"))
       }
       .vertical(true)
       .barMode(BarMode.Scrollable)
       .barWidth(150)
       .barHeight('100%')
       .padding(10)
+      .layoutWeight(1)
 
     }
     .width('100%')
     .height('100%')
+    .backgroundColor('#fff6f3f3')
   }
 }

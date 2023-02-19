@@ -33,8 +33,9 @@ export struct MainPage {
             align: HorizontalAlign.Center
           }
         })
-      Text('作者：沐雨璃殇\n项目地址：http://github.com/liluoqiushang/Genshin_Tools')
+      Text('作者：沐雨璃殇\nhttp://github.com/liluoqiushang/Genshin_Tools')
         .id('projectPath')
+        .width('100%')
         .alignRules({
           right:{
             align:HorizontalAlign.End,
