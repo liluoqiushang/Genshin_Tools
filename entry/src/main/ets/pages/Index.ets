@@ -55,7 +55,7 @@ struct Index {
             placeholder: '输入想要搜索的功能'
           }
         )
-          .width(350)
+          .width(270)
             //.layoutWeight(1)
           .searchButton('搜索')
           .placeholderFont(

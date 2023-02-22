@@ -4,7 +4,7 @@
 export struct MainPage {
   build() {
     RelativeContainer() {
-      Text('欢迎旅行者来到提瓦特,请开始你的冒险吧')
+      Text('欢迎旅行者来到提瓦特，请开始你的冒险吧')
         .textAlign(TextAlign.Center)
         .id('title')
         .fontSize(35)
