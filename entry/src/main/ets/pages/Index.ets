@@ -5,6 +5,7 @@ import { ToolsPage } from '../layout/toolsPage'
 @Component
 struct Index {
   private controller: TabsController = new TabsController()
+  @State tabsIndex: number = 0
 
   @Builder
   TabBuilder(index: number, title: string) {
@@ -15,9 +16,15 @@ struct Index {
         .margin({ right: 10 })
       Text(title)
         .fontSize(15)
+        .fontColor(this.tabsIndex==index?'#ffffff':'#ff000000')
     }
-    .padding(5)
-
+    .padding(8)
+    .backgroundColor(this.tabsIndex==index ? '#ff0036ff' : '#00000000')
+    .clip(true)
+    .borderRadius(100)
+    .width('100%')
+    .alignItems(VerticalAlign.Center)
+    .justifyContent(FlexAlign.Center)
   }
 
   build() {
@@ -36,7 +43,7 @@ struct Index {
             Text('未登录')
               .fontSize(16)
               .fontWeight(FontWeight.Bold)
-              .margin({ bottom:2})
+              .margin({ bottom: 2 })
             Text('15485624')
               .fontSize(14)
           }
@@ -92,7 +99,7 @@ struct Index {
           .height('100%')
           .backgroundColor('#ff0018ff')
         }
-        .tabBar(this.TabBuilder(0, "工具"))
+        .tabBar(this.TabBuilder(1, "工具"))
 
         TabContent() {
           Column() {
@@ -102,7 +109,7 @@ struct Index {
           .height('100%')
           .backgroundColor('#ffffe600')
         }
-        .tabBar(this.TabBuilder(0, "发现"))
+        .tabBar(this.TabBuilder(2, "发现"))
 
         TabContent() {
           Column() {
@@ -112,7 +119,7 @@ struct Index {
           .height('100%')
           .backgroundColor('#ffffa200')
         }
-        .tabBar(this.TabBuilder(0, "设置"))
+        .tabBar(this.TabBuilder(3, "设置"))
       }
       .vertical(true)
       .barMode(BarMode.Scrollable)
@@ -120,6 +127,9 @@ struct Index {
       .barHeight('100%')
       .padding(10)
       .layoutWeight(1)
+      .onChange((index: number) => {
+        this.tabsIndex = index
+      })
 
     }
     .width('100%')

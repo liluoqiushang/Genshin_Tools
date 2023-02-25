@@ -1,4 +1,4 @@
-@Entry
+
 @Preview
 @Component
 export struct ToolsPage {
