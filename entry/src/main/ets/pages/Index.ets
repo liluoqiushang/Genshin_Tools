@@ -21,7 +21,7 @@ struct Index {
     .padding(8)
     .backgroundColor(this.tabsIndex==index ? '#ff0036ff' : '#00000000')
     .clip(true)
-    .borderRadius(100)
+    .borderRadius(20)
     .width('100%')
     .alignItems(VerticalAlign.Center)
     .justifyContent(FlexAlign.Center)
@@ -134,6 +134,6 @@ struct Index {
     }
     .width('100%')
     .height('100%')
-    .backgroundColor('#fff6f3f3')
+    .backgroundColor('#fff3f3f6')
   }
 }
