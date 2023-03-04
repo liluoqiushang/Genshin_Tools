@@ -33,17 +33,23 @@ export struct MainPage {
             align: HorizontalAlign.Center
           }
         })
+        .shadow({
+          radius: 20,
+          color: '#ff146ef8',
+          offsetX: 10,
+          offsetY: 10
+        })
       Text('作者：沐雨璃殇\nhttp://github.com/liluoqiushang/Genshin_Tools')
         .id('projectPath')
         .width('100%')
         .alignRules({
-          right:{
-            align:HorizontalAlign.End,
-            anchor:'__container__'
+          right: {
+            align: HorizontalAlign.End,
+            anchor: '__container__'
           },
-          bottom:{
-            anchor:'__container__',
-            align:VerticalAlign.Bottom
+          bottom: {
+            anchor: '__container__',
+            align: VerticalAlign.Bottom
           }
         }
         )

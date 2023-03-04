@@ -16,10 +16,10 @@ struct Index {
         .margin({ right: 10 })
       Text(title)
         .fontSize(15)
-        .fontColor(this.tabsIndex==index?'#ffffff':'#ff000000')
+        .fontColor(this.tabsIndex == index ? '#ffffff' : '#ff000000')
     }
     .padding(8)
-    .backgroundColor(this.tabsIndex==index ? '#ff0036ff' : '#00000000')
+    .backgroundColor(this.tabsIndex == index ? '#ff0036ff' : '#00000000')
     .clip(true)
     .borderRadius(20)
     .width('100%')
@@ -38,6 +38,7 @@ struct Index {
             .borderRadius(100)
             .backgroundColor('#ffffff')
             .padding(1)
+
 
           Column() {
             Text('未登录')
@@ -135,5 +136,6 @@ struct Index {
     .width('100%')
     .height('100%')
     .backgroundColor('#fff3f3f6')
+
   }
 }
