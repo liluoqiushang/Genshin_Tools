@@ -4,133 +4,68 @@ import { ToolsPage } from '../layout/toolsPage'
 @Entry
 @Component
 struct Index {
-  private controller: TabsController = new TabsController()
   @State tabsIndex: number = 0
+  private controller: TabsController = new TabsController()
 
-  @Builder
-  TabBuilder(index: number, title: string) {
+  @Builder MenuItem(index: number, title: string, itemSwitch: boolean) {
     Row() {
-      Image($r('app.media.app_icon'))
-        .width(20)
-        .height(20)
-        .margin({ right: 10 })
       Text(title)
-        .fontSize(15)
-        .fontColor(this.tabsIndex == index ? '#ffffff' : '#ff000000')
+        .fontSize(17)
+        .margin(10)
+        .fontColor(this.tabsIndex == index ? '#ffffff' : '#ff474747')
+      Blank()
+      if (itemSwitch) {
+        Toggle({ type: ToggleType.Switch })
+      }
+
     }
-    .padding(8)
-    .backgroundColor(this.tabsIndex == index ? '#ff0036ff' : '#00000000')
-    .clip(true)
-    .borderRadius(20)
+    .padding({ left: 10, top: 5, bottom: 5, right: 10 })
+    .backgroundColor(this.tabsIndex == index ? '#ff1938e9' : '#00000000')
+    .borderRadius(10)
+    .onClick(() => {
+      this.tabsIndex = index
+    })
     .width('100%')
-    .alignItems(VerticalAlign.Center)
-    .justifyContent(FlexAlign.Center)
+  }
+
+  @Builder MenuText(title: string) {
+    Text(title).fontSize(17).fontWeight(600).margin({ top: 10, bottom: 10 })
   }
 
   build() {
-    Column() {
-      Row() {
-        Row() {
-          Image($r('app.media.app_icon'))
-            .clip(true)
-            .width(35)
-            .height(35)
-            .borderRadius(100)
-            .backgroundColor('#ffffff')
-            .padding(1)
+    Row() {
+      List() {
 
-
-          Column() {
-            Text('未登录')
-              .fontSize(16)
-              .fontWeight(FontWeight.Bold)
-              .margin({ bottom: 2 })
-            Text('15485624')
-              .fontSize(14)
+        ListItemGroup({ header: this.MenuText('主页') }) {
+          ListItem() {
+            this.MenuItem(0, '主页', false)
           }
-          .alignItems(HorizontalAlign.Start)
-          .margin({
-            left: 10,
-            right: 30
-          })
-
         }
 
-        Blank()
-
-        Search(
-          {
-            placeholder: '输入想要搜索的功能'
+        ListItemGroup({ header: this.MenuText('功能') }) {
+          ListItem() {
+            this.MenuItem(1, '主页', false)
           }
-        )
-          .width(270)
-            //.layoutWeight(1)
-          .searchButton('搜索')
-          .placeholderFont(
-            {
-              size: 14
-            }
-          )
-          .textFont(
-            {
-              size: 14,
-            }
-          )
-
+        }
       }
-      .width('100%')
-      .padding(20)
+      .margin(10)
+      .width(190)
 
-      Tabs(
-        {
-          barPosition: BarPosition.Start,
-          controller: this.controller
-        }
-      ) {
-        TabContent() {
+      Swiper() {
+
           MainPage()
-        }
-        .tabBar(this.TabBuilder(0, "主页"))
+          ToolsPage()
 
-        TabContent() {
-          Column() {
-            ToolsPage()
-          }
-          .width('100%')
-          .height('100%')
-          .backgroundColor('#ff0018ff')
-        }
-        .tabBar(this.TabBuilder(1, "工具"))
-
-        TabContent() {
-          Column() {
-
-          }
-          .width('100%')
-          .height('100%')
-          .backgroundColor('#ffffe600')
-        }
-        .tabBar(this.TabBuilder(2, "发现"))
-
-        TabContent() {
-          Column() {
-
-          }
-          .width('100%')
-          .height('100%')
-          .backgroundColor('#ffffa200')
-        }
-        .tabBar(this.TabBuilder(3, "设置"))
-      }
-      .vertical(true)
-      .barMode(BarMode.Scrollable)
-      .barWidth(150)
-      .barHeight('100%')
-      .padding(10)
+      }.height('100%')
+      .indicator(false)
+      .index(this.tabsIndex)
       .layoutWeight(1)
-      .onChange((index: number) => {
-        this.tabsIndex = index
+      .vertical(true)
+      //.loop(false)
+      .onChange((index:number)=>{
+        this.tabsIndex=index
       })
+
 
     }
     .width('100%')
