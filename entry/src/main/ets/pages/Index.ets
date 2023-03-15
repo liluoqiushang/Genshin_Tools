@@ -10,8 +10,8 @@ struct Index {
   @Builder MenuItem(index: number, title: string, itemSwitch: boolean) {
     Row() {
       Text(title)
-        .fontSize(17)
-        .margin(10)
+        .fontSize(15)
+        .margin(5)
         .fontColor(this.tabsIndex == index ? '#ffffff' : '#ff474747')
       Blank()
       if (itemSwitch) {
@@ -29,7 +29,7 @@ struct Index {
   }
 
   @Builder MenuText(title: string) {
-    Text(title).fontSize(17).fontWeight(600).margin({ top: 10, bottom: 10 })
+    Text(title).fontSize(15).fontWeight(600).margin({ top: 10, bottom: 10 })
   }
 
   build() {
@@ -50,6 +50,7 @@ struct Index {
       }
       .margin(10)
       .width(190)
+      .height('100%')
 
       Swiper() {
 
@@ -61,6 +62,7 @@ struct Index {
       .index(this.tabsIndex)
       .layoutWeight(1)
       .vertical(true)
+
       //.loop(false)
       .onChange((index:number)=>{
         this.tabsIndex=index
